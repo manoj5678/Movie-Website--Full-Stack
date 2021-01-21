@@ -1,0 +1,29 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3>Movie Details</h3>
+  </div>
+  <div >
+    <table class="table .table-condensed">
+      <thead>
+        <tr>
+          <th>Id</th>
+          <th>Movie Title</th>
+          <th>Added Date</th>
+          <th>Description</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let movie of movies | async">
+          <td>{{movie.id}}</td>
+          <td>{{movie.title}}</td>
+          <td>{{movie.addedDate}}</td>
+          <td>{{movie.description}}</td>
+          <td><button  type="button" class="btn btn-primary"  (click)="showMovieDetails(movie.id)"> Display </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+

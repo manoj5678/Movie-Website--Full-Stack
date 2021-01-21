@@ -1,0 +1,18 @@
+<div class="container">
+  <br>
+  <br><br>
+  <div class="wrapper fadeInDown">
+    <div *ngIf="error && !userService.isUserLogin">
+      <div class="alert alert-danger">
+        <strong>OOPs !</strong> user credentials wrong , please provide correct details
+      </div>
+    </div>
+    <div id="formContent" *ngIf="!userService.isUserLogin">
+      <br>
+      <input type="email" id="login" class="fadeIn second" name="login" placeholder="Enter user email id" [(ngModel)]="emailId">
+      <input type="password" id="password" class="fadeIn second" name="password" placeholder="Enter user password" [(ngModel)]="password">
+      <input type="button" class="fadeIn fourth" value="Log In" (click)="onSubmit()">
+    </div>
+    <router-outlet></router-outlet>
+  </div>
+</div>

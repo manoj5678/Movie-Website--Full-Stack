@@ -1,0 +1,99 @@
+<div class="panel panel-default">
+  <ng-template [ngIf]="movieDetails">
+  <div >
+    <div *ngIf="succesmessage" class="alert alert-success">
+      <strong>Success !</strong> Movie rating details has successfully saved in to NoSQl data base
+    </div>
+    <div class="panel-heading">
+      <h5>Movie Details</h5>
+    </div>
+
+    <table class="table .table-condensed">
+      <thead>
+        <tr>
+          <th>Id</th>
+          <th>Movie Title</th>
+          <th>Added Date</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>{{movieDetails.id}}</td>
+          <td>{{movieDetails.title}}</td>
+          <td>{{movieDetails.addedDate}}</td>
+          <td>{{movieDetails.description}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+    <div >
+      <div class="panel-heading">
+        <h5>Movie Rating Details</h5>
+      </div>
+      <div *ngIf="isModelWindowClosed">
+        <br><br>
+        <div class="border border-success rounded">
+          <br><br>
+        <div class="form-content ">
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <input type="text" class="form-control" placeholder="Movie rating"  [(ngModel)]="movierating.rating"/>
+              </div>
+              <div class="form-group">
+                <input type="text" class="form-control" placeholder="Comment Title" [(ngModel)]="movierating.commentTitle"/>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <input type="text" class="form-control" placeholder="Comment Content" [(ngModel)]="movierating.commentContent"/>
+              </div>
+            </div>
+            <div class="col-md-9"></div>
+            <div class="col-md-1">
+              <div class="form-group">
+                <button type="button" class="btn btn-primary" (click)="saveMoviRatingWindow()">Submit</button>
+              </div>
+            </div>
+            <div class="col-md-1">
+              <div class="form-group">
+                <button type="button" class="btn btn-primary" (click)="closeMoviRatingWindow()">Cancel</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        </div>
+        <br><br>
+      </div>
+
+      <div>
+        <button  mat-raised-button   style="float: right" class="btn btn-primary"  (click)="openMoviRatingWindow()"> Add Movie Rating </button>
+      </div>
+      <br>
+      <br>
+      <table class="table .table-condensed">
+        <thead>
+        <tr>
+          <th>rating</th>
+          <th>Comment Title</th>
+          <th>Comment Content</th>
+          <th>user Id</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let movierating of movieratingList">
+          <td>{{movierating.rating}}</td>
+          <td>{{movierating.commentTitle}}</td>
+          <td>{{movierating.commentContent}}</td>
+          <td>{{movierating.userId}}</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </ng-template>
+
+</div>
+
